@@ -1,9 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "Bash(git init *)",
-      "Bash(git add *)",
-      "Bash(git -c user.name=\"Frank\" -c user.email=\"fj-ship-it@users.noreply.github.com\" commit -m \"Phase 1 landing page scaffold for melaninfitmen.com\" -q)"
-    ]
-  }
-}

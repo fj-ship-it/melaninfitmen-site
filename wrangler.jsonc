@@ -11,5 +11,9 @@
     "directory": "./public",
     "binding": "ASSETS",
     "not_found_handling": "404-page"
+  },
+  "vars": {
+    "ESP_PROVIDER": "beehiiv",
+    "BEEHIIV_PUBLICATION_ID": "pub_d079a9bd-b3b8-499b-8ef2-7b2056f47344"
   }
 }

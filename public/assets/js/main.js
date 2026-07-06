@@ -4,6 +4,25 @@
   var yearEl = document.getElementById("year");
   if (yearEl) yearEl.textContent = String(new Date().getFullYear());
 
+  // Lite YouTube embeds — load the iframe only on click.
+  var liteButtons = document.querySelectorAll(".yt-lite[data-video-id]");
+  Array.prototype.forEach.call(liteButtons, function (btn) {
+    btn.addEventListener("click", function () {
+      var videoId = btn.getAttribute("data-video-id");
+      if (!videoId) return;
+      var iframe = document.createElement("iframe");
+      iframe.src =
+        "https://www.youtube-nocookie.com/embed/" +
+        encodeURIComponent(videoId) +
+        "?autoplay=1&playsinline=1&rel=0";
+      iframe.title = btn.getAttribute("aria-label") || "YouTube video";
+      iframe.allow =
+        "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+      iframe.allowFullscreen = true;
+      btn.replaceChildren(iframe);
+    }, { once: true });
+  });
+
   var form = document.getElementById("subscribe-form");
   if (!form) return;
 
@@ -48,7 +67,7 @@
       .then(function (result) {
         if (result.ok) {
           form.reset();
-          setStatus("You're in. Watch your inbox for the King's Drop.", "success");
+          setStatus("You're in. The Clean Stack Guide is headed to your inbox.", "success");
         } else {
           setStatus((result.data && result.data.error) || "Something went wrong. Try again in a moment.", "error");
         }

@@ -21,3 +21,14 @@ npm-debug.log*
 # Local env
 .env
 .env.local
+
+# Voice-over outputs (large binaries — track metadata JSON, not MP3s)
+scripts/done/*.mp3
+
+# YouTube scorecard OAuth credentials — never commit these
+client_secrets.json
+.youtube_token.json
+
+# Social proof raw screenshots (may contain personal info — keep local)
+proof/raw/*
+!proof/raw/.gitkeep

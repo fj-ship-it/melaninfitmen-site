@@ -252,6 +252,44 @@ p { color: var(--brand-white); }
 @media (min-width: 768px) {
   .hero-cta-row { flex-direction: row; align-items: center; gap: var(--space-6); }
 }
+.hero-social-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3) var(--space-5);
+}
+
+/* Proof strip */
+.proof-strip {
+  background: var(--brand-charcoal);
+  border-bottom: 1px solid #131313;
+  padding-block: var(--space-5);
+}
+.proof-inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+  text-align: center;
+}
+@media (min-width: 768px) {
+  .proof-inner { grid-template-columns: repeat(3, 1fr); gap: var(--space-5); }
+}
+.proof-item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+.proof-stat {
+  font-family: var(--font-display);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: 1.375rem;
+  color: var(--brand-gold);
+}
+.proof-label {
+  font-size: var(--fs-small);
+  color: var(--brand-mute);
+}
 
 /* Pillars */
 .section-pillars { background: var(--brand-black); }
@@ -286,43 +324,102 @@ p { color: var(--brand-white); }
   font-size: 0.9375rem;
 }
 
-/* Instagram block */
-.section-ig { background: var(--brand-charcoal); }
-.ig-grid {
+/* Watch (YouTube Shorts) block */
+.section-watch { background: var(--brand-charcoal); }
+.watch-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: var(--space-2);
+  grid-template-columns: 1fr;
+  gap: var(--space-5);
+  max-width: 960px;
 }
-@media (min-width: 768px) {
-  .ig-grid { grid-template-columns: repeat(3, 1fr); gap: var(--space-3); }
+@media (min-width: 640px) {
+  .watch-grid { grid-template-columns: repeat(3, 1fr); gap: var(--space-4); }
 }
-@media (min-width: 1024px) {
-  .ig-grid { grid-template-columns: repeat(6, 1fr); }
-}
-.ig-card {
-  position: relative;
-  aspect-ratio: 1 / 1;
-}
-.ig-card a {
+.watch-card {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+.yt-lite {
+  position: relative;
+  display: block;
   width: 100%;
-  height: 100%;
+  aspect-ratio: 9 / 16;
+  padding: 0;
+  overflow: hidden;
   background: var(--brand-black);
   border: 1px solid #2a2a2a;
   border-radius: var(--radius);
-  transition: border-color 0.15s ease;
+  transition: border-color 0.15s ease, transform 0.15s ease;
 }
-.ig-card a:hover { border-color: var(--brand-gold); }
-.ig-placeholder {
-  font-family: var(--font-display);
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
+.yt-lite:hover { border-color: var(--brand-gold); transform: translateY(-2px); }
+.yt-lite img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.yt-lite iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+.yt-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 64px;
+  height: 64px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: rgba(10, 10, 10, 0.7);
+  border: 2px solid var(--brand-gold);
+  transition: background-color 0.15s ease;
+}
+.yt-play::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 54%;
+  transform: translate(-50%, -50%);
+  border-style: solid;
+  border-width: 12px 0 12px 20px;
+  border-color: transparent transparent transparent var(--brand-gold);
+}
+.yt-lite:hover .yt-play { background: rgba(186, 117, 23, 0.25); }
+.watch-title {
+  font-size: 0.9375rem;
+  letter-spacing: 0.04em;
+  color: var(--brand-white);
+}
+.watch-cta { margin-top: var(--space-6); }
+
+/* Instagram panel */
+.section-ig { background: var(--brand-black); }
+.ig-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-5);
+}
+@media (min-width: 768px) {
+  .ig-panel { flex-direction: row; align-items: center; gap: var(--space-7); }
+}
+.ig-mark {
+  width: 96px;
+  height: 96px;
+  flex: 0 0 auto;
+}
+@media (min-width: 768px) {
+  .ig-mark { width: 120px; height: 120px; }
+}
+.ig-panel-body .section-title { margin-top: var(--space-2); }
+.ig-panel-text {
+  margin: var(--space-4) 0 var(--space-5);
+  max-width: 56ch;
   color: var(--brand-mute);
-  font-size: 0.8125rem;
 }
-.ig-cta { margin-top: var(--space-5); }
 
 /* Subscribe */
 .section-subscribe {
@@ -332,6 +429,11 @@ p { color: var(--brand-white); }
 }
 .subscribe-inner { max-width: 720px; }
 .section-subscribe .section-title { font-size: var(--fs-h2); }
+.subscribe-lead {
+  margin-bottom: var(--space-2);
+  max-width: 62ch;
+  color: var(--brand-white);
+}
 .subscribe-form {
   display: flex;
   flex-direction: column;

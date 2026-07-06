@@ -1,0 +1,20 @@
+# Social proof library — see social-proof-collector skill for entry format and rules.
+# Every testimonial, comment, DM, result, or milestone gets logged here ONCE, then
+# deployed to pages/posts. Never publish anything with permission: pending.
+#
+# Entry template:
+# - id: p001
+#   date: 2026-07-06
+#   type: comment          # comment | dm | testimonial | result | milestone | press
+#   source: instagram      # instagram | youtube | email | beehiiv | in-person
+#   quote: ""
+#   attribution: ""
+#   permission: pending    # granted | requested | public-comment | pending
+#   permission_note: ""
+#   pillar: supplement-truth
+#   strength: 3            # 1-5; 5 = specific measurable result
+#   raw: raw/p001.png
+#   ready: ready/p001-web.png
+#   used_in: []
+
+items: []

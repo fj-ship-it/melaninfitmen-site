@@ -1,0 +1,1 @@
+BLOCKED in env ClaudeCode too — https://paramountnutra.com unreachable; curl returned HTTP 000 (exit 56) because the egress proxy denied CONNECT. recentRelayFailures: [{"ts":"2026-10-05T11:21:28.937Z","kind":"connect_rejected","detail":"gateway answered 403 to CONNECT (policy denial or upstream failure)","host":"paramountnutra.com:443"}]
